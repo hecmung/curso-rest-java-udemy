@@ -18,16 +18,14 @@ public class ProductService {
     }
 
     public List<Product> getAllProducts() {
-        productRepositoy.createProducts();
         return productRepositoy.getAllProducts();
     }
 
     public Product findById(Long id) {
-        productRepositoy.createProducts();
         return productRepositoy.findById(id);
     }
 
-    public String delete(Long id) {
+    public boolean delete(Long id) {
         return productRepositoy.delete(id);
     }
 
