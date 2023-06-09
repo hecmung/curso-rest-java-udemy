@@ -11,18 +11,20 @@ public class ProductRepositoy {
 
     private List<Product> products = new ArrayList<>();
 
+    public ProductRepositoy() {
+        createProducts();
+    }
+
     public void createProducts() {
-        products = List.of(
-                new Product(1L, "Product 01", 11, 101),
-                new Product(2L, "Product 02", 12, 102),
-                new Product(3L, "Product 03", 13, 103),
-                new Product(4L, "Product 04", 14, 104),
-                new Product(5L, "Product 05", 15, 105),
-                new Product(6L, "Product 06", 16, 106),
-                new Product(7L, "Product 07", 17, 107),
-                new Product(8L, "Product 08", 18, 108),
-                new Product(9L, "Product 09", 19, 109)
-        );
+        products.add(new Product(1L, "Product 01", 11, 101));
+        products.add(new Product(2L, "Product 02", 12, 102));
+        products.add(new Product(3L, "Product 03", 13, 103));
+        products.add(new Product(4L, "Product 04", 14, 104));
+        products.add(new Product(5L, "Product 05", 15, 105));
+        products.add(new Product(6L, "Product 06", 16, 106));
+        products.add(new Product(7L, "Product 07", 17, 107));
+        products.add(new Product(8L, "Product 08", 18, 108));
+        products.add(new Product(9L, "Product 09", 19, 109));
     }
 
     public List<Product> getAllProducts() {
