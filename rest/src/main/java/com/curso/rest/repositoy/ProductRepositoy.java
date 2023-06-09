@@ -32,7 +32,7 @@ public class ProductRepositoy {
     }
 
     public Product findById(Long id) {
-        return (Product) products.stream().filter(x -> x.getId() == id);
+        return products.stream().filter(product -> product.getId().equals(id)).findFirst().orElse(null);
     }
 
     public Product save(Product product) {
