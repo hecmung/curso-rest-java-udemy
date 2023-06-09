@@ -7,11 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Producto {
+public class Product {
 
     private Long id;
-    private ;
-    private ;
-    private ;
-    private ;
+    private String name;
+    private int amount;
+    private double price;
+
 }
