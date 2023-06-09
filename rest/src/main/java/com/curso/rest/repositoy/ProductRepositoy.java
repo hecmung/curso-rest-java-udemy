@@ -47,33 +47,27 @@ public class ProductRepositoy {
         return product1;
     }
 
-    public String delete(Long id) {
-        products.removeIf(x -> x.getId() == id);
-
-        return null;
+    public boolean delete(Long id) {
+        return products.removeIf(x -> x.getId().equals(id));
     }
 
     public Product update(Product product) {
-        Long id = 0L;
-        Product oldProduct = null;
-        Product updatedProduct = new Product();
+        Product updatedProduct = null;
         int i;
-        
+
         for (i = 0; i < products.size(); i++) {
-            if(product.getId() == products.get(i).getId()) {
-                oldProduct = product;
+            if(product.getId().equals(products.get(i).getId())) {
+                updatedProduct = new Product();
+                updatedProduct.setId(product.getId());
+                updatedProduct.setName(product.getName());
+                updatedProduct.setAmount(product.getAmount());
+                updatedProduct.setPrice(product.getPrice());
+
+                products.add(i, updatedProduct);
+                break;
             }
         }
 
-        if(oldProduct != null) {
-            updatedProduct.setId(oldProduct.getId());
-            updatedProduct.setName(oldProduct.getName());
-            updatedProduct.setAmount(oldProduct.getAmount());
-            updatedProduct.setPrice(oldProduct.getPrice());
-
-            products.add(i, updatedProduct);
-        }
-
-        return oldProduct;
+        return updatedProduct;
     }
 }
