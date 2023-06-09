@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class ProductRepositoy {
@@ -36,6 +37,11 @@ public class ProductRepositoy {
     }
 
     public Product save(Product product) {
+        Optional<Product> optionalProduct = Optional.ofNullable(findById(product.getId()));
+
+       if(!optionalProduct.isEmpty())
+           return null;
+
         Product product1 = new Product();
         product1.setId(product.getId());
         product1.setName(product.getName());
